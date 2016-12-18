@@ -1,0 +1,16 @@
+[
+{
+  "modid": "explosivedeathsmod",
+  "name": "Explosive Deaths Mod",
+  "description": "Explosions",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Wiggles"],
+  "credits": "",
+  "logoFile": "tnt_side.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

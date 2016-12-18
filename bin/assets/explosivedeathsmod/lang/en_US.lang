@@ -1,0 +1,22 @@
+
+
+configgui.edm.category.chance.Size_Variance=
+configgui.edm.category.chance.Size_Variance.tooltip=
+
+
+configgui.edm.category.chance.Chain_Reaction=Chain Reactions
+configgui.edm.category.chance.Chain_Reaction.tooltip=Allows Explosions to trigger more explosions
+configgui.edm.category.chance.Explosion_Chance=Explosion Chance
+configgui.edm.category.chance.Explosion_Chance.tooltip=Chance out of 100 that an entity will explode on death
+configgui.edm.category.chance.Grief_Chance=Griefing Chance
+configgui.edm.category.chance.Grief_Chance.tooltip=Chance out of 100 that and explosion will damage terrain.
+configgui.edm.category.chance.Fire_Chance=Fiery Explosion Chance
+configgui.edm.category.chance.Fire_Chance.tooltip=Chance an explosion will set the area on fire out of 100
+configgui.edm.category.chance.Size_Variance=Random Sized Explosions
+configgui.edm.category.chance.Size_Variance.tooltip=Increases Explosion sizes by up to value. Default is 60 meaning up to 60% larger explosions.
+
+
+configgui.edm.category.general=Entity Settings
+configgui.edm.category.general.tooltip=Fine Tune what entities explode and how they explode
+configgui.edm.category.chance=Global Chances
+configgui.edm.category.chance.tooltip=Tune how often explosions can occur
