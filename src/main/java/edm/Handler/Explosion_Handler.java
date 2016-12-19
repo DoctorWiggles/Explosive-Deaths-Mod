@@ -18,7 +18,7 @@ public class Explosion_Handler extends ModConfig{
 	
 	protected static Random randy = new Random();
 	
-	@SubscribeEvent(priority=EventPriority.HIGHEST)
+	@SubscribeEvent(priority=EventPriority.NORMAL)
 	public void OnDeath_Event(LivingDeathEvent event){
 		
 	  Entity ent = event.entity;	
@@ -49,7 +49,12 @@ public class Explosion_Handler extends ModConfig{
 		}
 		
 		else if(roll(Anything_onDeath, Anything_Chance)){
-			Explode(ent, Anything_Size, Anything_Fire, Anything_Grief);
+			if(ent instanceof EntityMob ||
+			     ent instanceof EntityVillager ||
+				 ent instanceof EntityAnimal ||
+				 ent instanceof EntityPlayer ||
+				 ent instanceof IBossDisplayData ){return;}
+			Explode(ent, Anything_Size, Anything_Fire, Anything_Grief);			
 		}
 	  }
 		
@@ -61,9 +66,6 @@ public class Explosion_Handler extends ModConfig{
 	
 	public boolean roll (boolean flag, int chance){		
 		int rand = randy.nextInt(100);	
-		System.out.println(rand <= chance);
-		System.out.println(rand );
-		System.out.println(chance);
 		return (flag && (rand <= chance) && rand!= 0);
 	}
 	public boolean roll (int chance){		
@@ -86,7 +88,7 @@ public class Explosion_Handler extends ModConfig{
 				fire = false;
 			}			
 			
-				ent.worldObj.newExplosion(ent, ent.posX, ent.posY, ent.posZ, amplify(f), fire, grief);
+			ent.worldObj.newExplosion(ent, ent.posX, ent.posY, ent.posZ, amplify(f), fire, grief);
 			
 	}
 	
