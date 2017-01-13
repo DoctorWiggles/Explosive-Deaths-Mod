@@ -1,9 +1,9 @@
 package edm.Configs;
 
 import net.minecraftforge.common.config.Configuration;
-import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import edm.Refs;
 
 public class Config_Handler extends ModConfig{
@@ -12,7 +12,7 @@ public class Config_Handler extends ModConfig{
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-		if (eventArgs.modID.equals(Refs.MOD_ID))
+		if (eventArgs.getModID().equals(Refs.MOD_ID))
 			this.syncConfig();
 	}
 
@@ -61,12 +61,12 @@ public class Config_Handler extends ModConfig{
 		Boss_Size = size(Boss_Size, "Boss Size", 8);
 		
 		//Anything_onDeath = config.get(gen, "Anything onDeath", true).getBoolean(true);
-		Anything_onDeath = death(Anything_onDeath, "Anything onDeath", true);
-		Anything_Grief= sync(Anything_Grief, "Anything Grief", true);
-		Anything_Fire= sync(Anything_Fire, "Anything Fire", true);
+		Anything_onDeath = death(Anything_onDeath, "Anything Else onDeath", true);
+		Anything_Grief= sync(Anything_Grief, "Anything Else Grief", true);
+		Anything_Fire= sync(Anything_Fire, "Anything Else Fire", true);
 		//Anything_Chance = config.get(gen, "Anything Chance", 0).getInt(0);
-		Anything_Chance= ent_chance(Anything_Chance, "Anything Chance", 0);
-		Anything_Size = size(Anything_Size, "Anything Size", 1);
+		Anything_Chance= ent_chance(Anything_Chance, "Anything Else Chance", 0);
+		Anything_Size = size(Anything_Size, "Anything Else Size", 1);
 		
 		Chain_Reaction = chance(Chain_Reaction, "Chain_Reaction", true);
 		Grief_Chance = chance(Grief_Chance, "Grief_Chance", 100);

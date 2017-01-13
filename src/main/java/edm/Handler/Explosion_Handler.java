@@ -3,14 +3,13 @@ package edm.Handler;
 import java.util.Random;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import edm.Configs.ModConfig;
 
 public class Explosion_Handler extends ModConfig{
@@ -21,8 +20,8 @@ public class Explosion_Handler extends ModConfig{
 	@SubscribeEvent(priority=EventPriority.NORMAL)
 	public void OnDeath_Event(LivingDeathEvent event){
 		
-	  Entity ent = event.entity;	
-	  if(event.source.isExplosion() && Chain_Reaction == false){
+	  Entity ent = event.getEntity();	
+	  if(event.getSource().isExplosion() && Chain_Reaction == false){
 		  return;
 	  }
 	  
@@ -44,7 +43,7 @@ public class Explosion_Handler extends ModConfig{
 			Explode(ent, Monster_Size, Monster_Fire, Monster_Grief);
 		}
 		
-		else if(ent instanceof IBossDisplayData && roll(Boss_onDeath, Boss_Chance)){
+		else if(!ent.isNonBoss() && roll(Boss_onDeath, Boss_Chance)){
 			Explode(ent, Boss_Size, Boss_Fire, Boss_Grief);
 		}
 		
@@ -53,7 +52,7 @@ public class Explosion_Handler extends ModConfig{
 			     ent instanceof EntityVillager ||
 				 ent instanceof EntityAnimal ||
 				 ent instanceof EntityPlayer ||
-				 ent instanceof IBossDisplayData ){return;}
+				 !ent.isNonBoss() ){return;}
 			Explode(ent, Anything_Size, Anything_Fire, Anything_Grief);			
 		}
 	  }
