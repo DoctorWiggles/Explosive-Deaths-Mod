@@ -25,7 +25,7 @@ public class Explosion_Handler extends ModConfig{
 		  return;
 	  }
 	  
-	  if(!ent.worldObj.isRemote){
+	  if(!ent.world.isRemote){
 		
 		if(ent instanceof EntityPlayer && roll(Player_onDeath, Player_Chance)){
 			Explode(ent, Player_Size, Player_Fire, Player_Grief);
@@ -87,7 +87,7 @@ public class Explosion_Handler extends ModConfig{
 				fire = false;
 			}			
 			
-			ent.worldObj.newExplosion(ent, ent.posX, ent.posY, ent.posZ, amplify(f), fire, grief);
+			ent.world.newExplosion(ent, ent.posX, ent.posY, ent.posZ, amplify(f), fire, grief);
 			
 	}
 	
